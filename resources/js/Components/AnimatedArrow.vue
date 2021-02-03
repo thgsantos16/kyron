@@ -1,5 +1,5 @@
 <template>
-    <div class="custom-arrow" :class="direction">
+    <div class="custom-arrow" @click="$emit('click')" :class="direction">
         <div class="row">
             <div class="col-6" v-for="i in 40" :key="i">
                 <div />
@@ -74,7 +74,7 @@ export default {
     .col-6 {
         height: 5vh;
         padding: 0;
-
+        z-index: 90;
 
         @for $i from 1 through 20 {
             &:nth-child(#{$i}) {
