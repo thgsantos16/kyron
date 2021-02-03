@@ -1,10 +1,41 @@
 <template>
-  <div class="home">
-    <div class="logo">
-        <jet-application-logo class="block w-auto" />
+    <div class="main container-fluid">
+        <div class="row">
+            <div class="home">
+                <animated-arrow direction="left" />
+
+                <div class="logo">
+                    <jet-application-logo class="block w-auto" />
+                </div>
+
+                <animated-arrow direction="right" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="hero">
+            </div>
+        </div>
     </div>
-  </div>
 </template>
+
+<script>
+    import JetApplicationLogo from '@/Jetstream/ApplicationLogo'
+    import AnimatedArrow from '@/Components/AnimatedArrow'
+
+    export default {
+        components: {
+            JetApplicationLogo,
+            AnimatedArrow,
+        },
+        props: {
+            canLogin: Boolean,
+            canRegister: Boolean,
+            laravelVersion: String,
+            phpVersion: String,
+        }
+    }
+</script>
 
 <style scoped lang="scss">
 
@@ -13,8 +44,8 @@
   background-image: url(../assets/bg.jpg);
   display: flex;
   width: 100%;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: relative;
   align-items: center;
   justify-content: center;
 
@@ -27,20 +58,8 @@
   }
 }
 
+.hero {
+    height: 100vh;
+}
+
 </style>
-
-<script>
-    import JetApplicationLogo from '@/Jetstream/ApplicationLogo'
-
-    export default {
-        components: {
-            JetApplicationLogo,
-        },
-        props: {
-            canLogin: Boolean,
-            canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
-        }
-    }
-</script>

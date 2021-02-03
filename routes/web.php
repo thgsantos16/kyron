@@ -24,6 +24,15 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/category', function () {
+    return Inertia::render('Category', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('category');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
